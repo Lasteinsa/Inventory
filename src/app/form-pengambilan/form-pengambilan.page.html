@@ -1,0 +1,32 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Pilih Barang</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid >
+    <ion-row>
+      <ion-col col-12>
+        <table>
+          <thead>
+            <tr>
+              <td>Nama Barang</td>
+              <td>Tersisa</td>
+              <td>Aksi</td>
+            </tr>
+          </thead>
+          <tbody *ngIf="Data_Barang">
+            <tr *ngFor="let data of Data_Barang">
+              <td valign="top">{{data.name}}</td>
+              <td valign="top">{{data.quantity}}</td>
+              <td valign="top">
+                <ion-button color="secondary" size="small" routerLink="/form-lanjutan/{{data.id}}" routerDirection="forward"><ion-icon name="chevron-forward-outline"></ion-icon></ion-button>
+              </td>      
+            </tr>
+          </tbody>
+        </table>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
