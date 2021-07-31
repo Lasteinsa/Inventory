@@ -27,6 +27,10 @@ const routes: Routes = [
     path: 'form-lanjutan',
     loadChildren: () => import('./form-lanjutan/form-lanjutan.module').then( m => m.FormLanjutanPageModule)
   },
+  {
+    path: 'form-penambahan',
+    loadChildren: () => import('./form-penambahan/form-penambahan.module').then( m => m.FormPenambahanPageModule)
+  },
 ];
 
 @NgModule({

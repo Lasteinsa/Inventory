@@ -1,30 +1,33 @@
 import { Component, OnInit } from '@angular/core';
-
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { LoadingController,NavController } from '@ionic/angular';
 import { AuthServiceService } from './../../app/auth-service.service';
 import { AlertController } from '@ionic/angular';
 import { FormControl, FormGroupDirective, FormBuilder, FormGroup, NgForm, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 
+const apiUrl = "http://localhost/barang";
+
 @Component({
   selector: 'app-form-edit',
   templateUrl: './form-edit.page.html',
   styleUrls: ['./form-edit.page.scss'],
 })
+
 export class FormEditPage implements OnInit {
 
   public FormEditData:FormGroup;
   ResponseData:any;
   dataBarangEdit:any;
-
+  
   constructor(public navCtrl: NavController, 
     public api: AuthServiceService, 
     public loadingController: LoadingController,
     public alertController: AlertController, 
     private formBuilder: FormBuilder,
-    private activatedRoute: ActivatedRoute) {
+    private activatedRoute: ActivatedRoute, private http: HttpClient) {
       this.FormEditData=this.formBuilder.group({
-          id:[this.activatedRoute.snapshot.paramMap.get('id')],
+          product_id:[this.activatedRoute.snapshot.paramMap.get('id')],
           name:[null, Validators.required],
           quantity:[null, Validators.required],
           desk:[null, Validators.required]
@@ -54,7 +57,8 @@ export class FormEditPage implements OnInit {
           console.log(err);
         });
     }
-  
+    
+    
     simpan(){
       this.api.Post_Data('update',this.FormEditData.value)
         .subscribe(res => {
