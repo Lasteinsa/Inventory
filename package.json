@@ -28,7 +28,8 @@
     "@ionic/angular": "^5.5.2",
     "rxjs": "~6.6.0",
     "tslib": "^2.2.0",
-    "zone.js": "~0.11.4"
+    "zone.js": "~0.11.4",
+    "express": "4.8.4"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "~12.1.1",
