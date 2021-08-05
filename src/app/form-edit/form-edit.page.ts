@@ -6,7 +6,7 @@ import { AlertController } from '@ionic/angular';
 import { FormControl, FormGroupDirective, FormBuilder, FormGroup, NgForm, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 
-const apiUrl = "http://localhost/barang";
+const apiUrl = "https://t-gadgetcors.herokuapp.com/https://inventori-api.herokuapp.com/barang";
 
 @Component({
   selector: 'app-form-edit',
@@ -58,11 +58,14 @@ export class FormEditPage implements OnInit {
         });
     }
     
-    
     simpan(){
-      this.api.Post_Data('update',this.FormEditData.value)
+      let params = new URLSearchParams();
+      for(let key in this.FormEditData.value){
+          params.set(key, this.FormEditData.value[key]) 
+      }
+      this.api.Put_Data('update',params)
         .subscribe(res => {
-            this.navCtrl.navigateBack('/home');
+              this.navCtrl.navigateBack('/home');
           }, (err) => {
             console.log(err);
           });

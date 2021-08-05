@@ -4,18 +4,17 @@ import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { HomePageRoutingModule } from './home-routing.module';
+import { InventoryListPageRoutingModule } from './inventory-list-routing.module';
 
-import { HomePage } from './home.page';
-
+import { InventoryListPage } from './inventory-list.page';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    HomePageRoutingModule
+    InventoryListPageRoutingModule
   ],
-  declarations: [HomePage]
+  declarations: [InventoryListPage]
 })
-export class HomePageModule {}
+export class InventoryListPageModule {}

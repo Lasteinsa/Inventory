@@ -1,0 +1,52 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>Inventory Log Activity</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid >
+    <ion-row>
+      <ion-col col-6>
+        Barang Masuk
+          <table>
+            <thead>
+              <tr>
+                <th>Nama Barang</th>
+                <th>Jumlah</th>
+                <th>Tanggal</th>
+              </tr>
+              </thead>
+            <tbody *ngIf="BarangMasuk">
+              <tr *ngFor="let masuk of BarangMasuk">
+                <td valign="top">{{masuk.name}}</td>
+                <td valign="top">{{masuk.quantity}}</td>   
+                <td valign="top">{{masuk.created_at}}</td>     
+              </tr>
+            </tbody>
+          </table>         
+      </ion-col>
+      <ion-col col-6>
+        Barang Keluar
+        <table>
+          <thead>
+            <tr>
+              <th>Nama Barang</th>
+              <th>Nama Admin</th>
+              <th>Jumlah</th>
+              <th>Tanggal</th>
+            </tr>
+            </thead>
+          <tbody *ngIf="BarangKeluar">
+            <tr *ngFor="let keluar of BarangKeluar">
+              <td valign="top">{{keluar.name}}</td>
+              <td valign="top">{{keluar.admin}}</td>   
+              <td valign="top">{{keluar.quantity}}</td> 
+              <td valign="top">{{keluar.created_at}}</td>     
+            </tr>
+          </tbody>
+        </table>         
+    </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

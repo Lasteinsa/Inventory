@@ -1,0 +1,37 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="primary">
+    <ion-title>
+      List Barang
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-grid >
+    <ion-row>
+      <ion-col col-12>
+          <table>
+            <thead>
+              <tr>
+                <th>Nama Barang</th>
+                <th>Jumlah</th>
+                <th>Info</th>
+                <th>Aksi</th>
+              </tr>
+              </thead>
+            <tbody *ngIf="Data_Barang">
+              <tr *ngFor="let data of Data_Barang">
+                <td valign="top">{{data.name}}</td>
+                <td valign="top">{{data.quantity}}</td>   
+                <td valign="top">{{data.desk}}</td>
+                <td valign="top">
+                  <ion-button color="danger" size="small" (click)="presentAlertConfirm(data.id)"><ion-icon name="trash"></ion-icon></ion-button>
+                  <ion-button color="secondary" size="small" routerLink="/form-edit/{{data.id}}" routerDirection="forward"><ion-icon name="create"></ion-icon></ion-button>
+                </td>      
+              </tr>
+            </tbody>
+          </table>         
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

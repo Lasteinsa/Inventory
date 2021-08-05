@@ -1,12 +1,12 @@
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import { Routes, RouterModule } from '@angular/router';
 
-import { HomePage } from './home.page';
+import { BlankPage } from './blank.page';
 
 const routes: Routes = [
   {
     path: '',
-    component: HomePage,
+    component: BlankPage,
     children : [
       {
         path: 'form-pengambilan',
@@ -27,15 +27,6 @@ const routes: Routes = [
         ]
       },
       {
-        path: 'inventory-list',
-        children: [
-          {
-            path: '',
-            loadChildren: () => import('../inventory-list/inventory-list.module').then( m => m.InventoryListPageModule)
-          }
-        ]
-      },
-      {
         path: 'inventory-log',
         children: [
           {
@@ -45,21 +36,30 @@ const routes: Routes = [
         ]
       },
       {
+        path: 'inventory-list',
+        children: [
+          {
+            path: '',
+            loadChildren: () => import('../inventory-list/inventory-list.module').then( m => m.InventoryListPageModule)
+          }
+        ]
+      },
+      {
         path: '',
-        redirectTo: '/home/inventory-list',
+        redirectTo: '/blank/inventory-list',
         pathMatch: 'full'
       }
     ]
   },
   {
     path: '',
-    redirectTo: '/home/home/inventory-list',
+    redirectTo: '/blank/blank/form-pengambilan',
     pathMatch: 'full'
   }
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class HomePageRoutingModule {}
+export class BlankPageRoutingModule {}

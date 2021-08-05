@@ -1,13 +1,13 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { MenuController } from '@ionic/angular';
 
 @Component({
-  selector: 'app-home',
-  templateUrl: 'home.page.html',
-  styleUrls: ['home.page.scss'],
+  selector: 'app-blank',
+  templateUrl: './blank.page.html',
+  styleUrls: ['./blank.page.scss'],
 })
-export class HomePage {
-  
+export class BlankPage {
+
   constructor(private menu: MenuController) { }
 
   openFirst() {
@@ -23,6 +23,5 @@ export class HomePage {
     this.menu.enable(true, 'custom');
     this.menu.open('custom');
   }
-  
 
 }

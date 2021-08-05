@@ -1,39 +1,37 @@
 import { Component, OnInit } from '@angular/core';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
+
 import { LoadingController,NavController } from '@ionic/angular';
-import { AuthServiceService } from './../../app/auth-service.service';
-import { AlertController } from '@ionic/angular';
-import { FormControl, FormGroupDirective, FormBuilder, FormGroup, NgForm, Validators } from '@angular/forms';
+
+const httpOptions = {
+  headers: new HttpHeaders({})
+};
+const apiUrl = "https://t-gadgetcors.herokuapp.com/https://inventori-api.herokuapp.com/barang";
 
 @Component({
-  selector: 'app-form-penambahan',
+  selector   : 'app-form-penambahan',
   templateUrl: './form-penambahan.page.html',
-  styleUrls: ['./form-penambahan.page.scss'],
+  styleUrls  : ['./form-penambahan.page.scss'],
 })
-export class FormPenambahanPage implements OnInit {
-  public FormSimpanData:FormGroup;
 
-  constructor(public navCtrl: NavController, 
-    public api: AuthServiceService, 
-    public loadingController: LoadingController,
-    public alertController: AlertController, 
-    private formBuilder: FormBuilder) {
-      this.FormSimpanData=this.formBuilder.group({
-          name:['', Validators.required],
-          quantity:['', Validators.required],
-          desk:['', Validators.required]
-        });
-     }
+export class FormPenambahanPage {
 
-  ngOnInit() {
-  }
+  constructor(private http: HttpClient, public navCtrl: NavController) { }
+  
+  FormSimpanData = {};
 
-  simpan() {
-    this.api.Post_Data('add',this.FormSimpanData.value)
-      .subscribe(res => {
-          this.navCtrl.navigateBack('/home');
-        }, (err) => {
-          console.log(err);
-        });
+  add(){
+    let params = new URLSearchParams();
+    for(let key in this.FormSimpanData){
+        params.set(key, this.FormSimpanData[key]) 
+    }
+    
+    this.http.post(`${apiUrl}/add`, params, httpOptions).subscribe(res => {
+        console.log(res);
+        this.navCtrl.navigateBack('/home');
+    }, (err) => {
+      console.log(err);
+    });
   }
 
 }

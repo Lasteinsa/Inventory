@@ -1,9 +1,33 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>form-lanjutan</ion-title>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/home"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Form Lanjutan</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-
+    <ion-grid>
+        <ion-row>
+          <ion-col col-12>
+              <form [formGroup]="FormPengambilanData" (ngSubmit)="simpan()">
+                  <ion-item>                                     
+                      <ion-label color="primary" position="stacked">Nama Admin</ion-label>
+                      <ion-input type="hidden" formControlName="product_id" ></ion-input>   
+                      <ion-input type="text" formControlName="admin" ></ion-input>                 
+                  </ion-item>  
+                  <ion-item>                                     
+                    <ion-label color="primary" position="stacked">Jumlah</ion-label>
+                    <ion-input type="number" formControlName="quantity"></ion-input>                 
+                  </ion-item>  
+                  <ion-item>                                     
+                    <ion-label color="primary" position="stacked">Keterangan</ion-label>
+                    <ion-input type="text" formControlName="desk" ></ion-input>                 
+                  </ion-item>        
+                    <ion-button expand="block"  type="submit" color="primary" [disabled]="!FormPengambilanData.valid" >Simpan</ion-button>
+              </form>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
 </ion-content>

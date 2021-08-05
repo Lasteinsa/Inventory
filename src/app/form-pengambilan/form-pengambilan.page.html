@@ -1,10 +1,12 @@
 <ion-header>
-  <ion-toolbar>
+  <ion-toolbar color="primary">
     <ion-title>Pilih Barang</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+    <!-- <h3>Barang Tidak ditemukan? Ajukan barang ke gudang!</h3> -->
+    <!-- <ion-button expand="block" href="/form-pengajuan">Form Pengajuan Barang</ion-button> -->
   <ion-grid >
     <ion-row>
       <ion-col col-12>
@@ -26,6 +28,14 @@
             </tr>
           </tbody>
         </table>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <div class="ion-text-center">
+          <h5>Tidak menemukan barang? silahkan</h5>
+          <a href="/form-pengajuan">ajukan barang</a>
+        </div>
       </ion-col>
     </ion-row>
   </ion-grid>

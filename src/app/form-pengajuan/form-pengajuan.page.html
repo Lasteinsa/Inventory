@@ -1,9 +1,36 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>Form Pengajuan Barang</ion-title>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/home"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Form Penambahan Data (Barang Masuk)</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-
+    <ion-grid>
+        <ion-row>
+          <ion-col col-12>
+              <form (ngSubmit)="pengajuan()">
+                  <ion-item>                                     
+                      <ion-label color="primary" position="stacked">Nama Barang</ion-label>
+                      <ion-input type="text" [(ngModel)]="FormSimpanData.product_name" name="product_name" ></ion-input>                 
+                  </ion-item> 
+                  <ion-item>                                     
+                    <ion-label color="primary" position="stacked">Nama Admin</ion-label>
+                    <ion-input type="text" [(ngModel)]="FormSimpanData.admin" name="admin" ></ion-input>                 
+                </ion-item>   
+                  <ion-item>                                     
+                    <ion-label color="primary" position="stacked">Jumlah</ion-label>
+                    <ion-input type="number" [(ngModel)]="FormSimpanData.quantity" name="quantity" ></ion-input>                 
+                  </ion-item>  
+                  <ion-item>                                     
+                    <ion-label color="primary" position="stacked">Deskripsi</ion-label>
+                    <ion-input type="text" [(ngModel)]="FormSimpanData.desk" name="desk" ></ion-input>                 
+                  </ion-item>        
+                    <ion-button expand="block"  type="submit" color="primary">Pengajuan</ion-button>
+              </form>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
 </ion-content>

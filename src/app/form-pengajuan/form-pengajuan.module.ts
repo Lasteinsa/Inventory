@@ -7,12 +7,14 @@ import { IonicModule } from '@ionic/angular';
 import { FormPengajuanPageRoutingModule } from './form-pengajuan-routing.module';
 
 import { FormPengajuanPage } from './form-pengajuan.page';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
+    ReactiveFormsModule,
     FormPengajuanPageRoutingModule
   ],
   declarations: [FormPengajuanPage]

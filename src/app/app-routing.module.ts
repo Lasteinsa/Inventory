@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
+
 const routes: Routes = [
   {
     path: 'home',
@@ -24,12 +25,24 @@ const routes: Routes = [
     loadChildren: () => import('./form-edit/form-edit.module').then( m => m.FormEditPageModule)
   },
   {
-    path: 'form-lanjutan',
+    path: 'form-lanjutan/:id',
     loadChildren: () => import('./form-lanjutan/form-lanjutan.module').then( m => m.FormLanjutanPageModule)
   },
   {
     path: 'form-penambahan',
     loadChildren: () => import('./form-penambahan/form-penambahan.module').then( m => m.FormPenambahanPageModule)
+  },
+  {
+    path: 'inventory-log',
+    loadChildren: () => import('./inventory-log/inventory-log.module').then( m => m.InventoryLogPageModule)
+  },
+  {
+    path: 'blank',
+    loadChildren: () => import('./blank/blank.module').then( m => m.BlankPageModule)
+  },
+  {
+    path: 'inventory-list',
+    loadChildren: () => import('./inventory-list/inventory-list.module').then( m => m.InventoryListPageModule)
   },
 ];
 
