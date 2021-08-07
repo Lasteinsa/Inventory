@@ -1,0 +1,38 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button routerLink="/home"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Log Pengajuan</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid >
+    <ion-row>
+      <ion-col col-12>
+        Pengajuan Barang
+          <table>
+            <thead>
+              <tr>
+                <th>Nama Barang</th>
+                <th>Nama Admin</th>
+                <th>Jumlah</th>
+                <th>Deskripsi</th>
+                <th>Tanggal</th>
+              </tr>
+              </thead>
+            <tbody *ngIf="BarangPengajuan">
+              <tr *ngFor="let ajuan of BarangPengajuan">
+                <td valign="top">{{ajuan.product_name}}</td>
+                <td valign="top">{{ajuan.admin}}</td>
+                <td valign="top">{{ajuan.quantity}}</td>
+                <td valign="top">{{ajuan.desk}}</td>    
+                <td valign="top">{{ajuan.created_at}}</td>     
+              </tr>
+            </tbody>
+          </table>         
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

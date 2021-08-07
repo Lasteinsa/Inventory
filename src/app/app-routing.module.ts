@@ -44,6 +44,10 @@ const routes: Routes = [
     path: 'inventory-list',
     loadChildren: () => import('./inventory-list/inventory-list.module').then( m => m.InventoryListPageModule)
   },
+  {
+    path: 'pengajuan-log',
+    loadChildren: () => import('./pengajuan-log/pengajuan-log.module').then( m => m.PengajuanLogPageModule)
+  },
 ];
 
 @NgModule({
