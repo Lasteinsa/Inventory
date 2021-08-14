@@ -25,7 +25,7 @@ export class FormLanjutanPage implements OnInit {
       this.FormPengambilanData=this.formBuilder.group({
           product_id:[this.activatedRoute.snapshot.paramMap.get('id')],
           admin:[null, Validators.required],
-          quantity:[null, Validators.required, Validators.max(his.dataBarangEdit.quantity)],
+          quantity:[null, Validators.max(this.dataBarangEdit.quantity)],
           desk:[null, Validators.required]
         });
     }
