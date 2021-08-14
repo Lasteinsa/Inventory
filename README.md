@@ -10,9 +10,9 @@ Idk man.. Just take a look by
 <li> Done </li>
 </ul>
 
-There's some bug that I have no time to deal with it. Actually simple bug.
-For demo : https://inven.herokuapp.com
-For API : https://github.com/Lasteinsa/Inventory-Api
+There's some bug that I have no time to deal with it. Actually simple bug. <br>
+For demo : https://inven.herokuapp.com <br>
+For API : https://github.com/Lasteinsa/Inventory-Api <br>
 
 Thanks to : @korospace <br>
 [ https://github.com/korospace ]
